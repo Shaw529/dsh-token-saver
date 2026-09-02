@@ -1,0 +1,96 @@
+{
+  "name": "dsh-token-saver",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.1.0",
+  "description": "DeepSeek Harness plugin: aggressive token optimization without affecting task quality. Trims tool results, manages context window pressure, optional LLM-summary compaction, stable prompt-cache layout.",
+  "type": "module",
+  "private": false,
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "license": "MIT",
+  "keywords": [
+    "dsh-plugin",
+    "deepseek",
+    "deepseek-harness",
+    "token-saver",
+    "compaction"
+  ],
+  "files": [
+    "lib",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "import": "./lib/index.js"
+    },
+    "./config": {
+      "types": "./lib/types/config.d.ts",
+      "import": "./lib/config.js"
+    },
+    "./truncate": {
+      "types": "./lib/types/lib/truncate.d.ts",
+      "import": "./lib/lib/truncate.js"
+    },
+    "./fold-grep": {
+      "types": "./lib/types/lib/fold-grep.d.ts",
+      "import": "./lib/lib/fold-grep.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "oxlint src test benchmark scripts",
+    "lint:fix": "oxlint --fix src test benchmark scripts",
+    "hygiene": "publint --strict",
+    "bench": "tsx benchmark/run.ts",
+    "bench:compare": "tsx benchmark/compare-run.ts",
+    "bench:real": "tsx benchmark/run-real-bench.ts",
+    "bench:parse": "tsx benchmark/parse-results.ts",
+    "smoke": "tsx scripts/local-smoke.ts"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=0",
+    "@deepseek-ai/dsh-compaction": ">=0",
+    "@deepseek-ai/schemastery": ">=0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-compaction": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "oxlint": "^1.7.0",
+    "publint": "^0.3.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vite-tsconfig-paths": "^6.1.1",
+    "vitepress": "^1.6.4",
+    "vitest": "^2.1.0"
+  }
+}
