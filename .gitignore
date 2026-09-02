@@ -1,6 +1,6 @@
 node_modules/
-lib/
-dist/
+/lib/
+/dist/
 coverage/
 *.log
 .DS_Store
@@ -9,3 +9,5 @@ coverage/
 .vscode/
 .idea/
 *.tsbuildinfo
+website/.vitepress/cache/
+website/.vitepress/dist/
