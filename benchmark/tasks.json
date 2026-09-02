@@ -1,0 +1,42 @@
+[
+  {
+    "id": "task1-read-package-json",
+    "prompt": "Please read the current repository's package.json and list every entry under the `scripts` field, one per line.",
+    "evaluate": "ground truth = the literal `scripts` keys in package.json"
+  },
+  {
+    "id": "task2-grep-todos",
+    "prompt": "Run grep across the repository for `TODO|FIXME|XXX` and list each match with its file and line number.",
+    "evaluate": "match count should be the same; lines should overlap with baseline"
+  },
+  {
+    "id": "task3-huge-read-linecount",
+    "prompt": "Read the file mentioned in the conversation context and tell me its exact line count.",
+    "evaluate": "answer matches `wc -l` output"
+  },
+  {
+    "id": "task4-mixed",
+    "prompt": "Do tasks 1, 2, and 3 in sequence and report each answer.",
+    "evaluate": "composite answer covers all three"
+  },
+  {
+    "id": "task5-stack-trace",
+    "prompt": "Run `node ./scripts/start.js`, capture the failure, and produce a concise error summary that includes the error type and the depth of the trace.",
+    "evaluate": "error type and depth match baseline"
+  },
+  {
+    "id": "task6-json-keys",
+    "prompt": "Find any JSON file in the repo and list its top-level keys.",
+    "evaluate": "keys match baseline keys"
+  },
+  {
+    "id": "task7-readme-then-qa",
+    "prompt": "Read README.md, then answer: does this project target DeepSeek Harness? Just yes/no plus one sentence.",
+    "evaluate": "yes/no and the supporting sentence overlap baseline"
+  },
+  {
+    "id": "task8-multi-turn",
+    "prompt": "Continue from the previous session. Q1: what is the plugin's name? Q2: what is its default mode?",
+    "evaluate": "Q1=`dsh-token-saver`, Q2=`conservative`"
+  }
+]
