@@ -9,13 +9,13 @@ importers:
   .:
     dependencies:
       '@deepseek-ai/cordis':
-        specifier: '>=0'
+        specifier: '>=3.0.0 <6.0.0-0 || >=4.0.1-rc.1 <5.0.0-0'
         version: 4.0.2
       '@deepseek-ai/dsh-compaction':
-        specifier: '>=0'
+        specifier: '>=0.0.1-rc.1 <0.1.0 || >=0.0.1-rc.1 <0.2.0-0'
         version: 0.0.1-rc.5(83971741fd18d38780fa2615fccff277)
       '@deepseek-ai/schemastery':
-        specifier: '>=0'
+        specifier: '>=3.0.0 <4.0.0-0 || >=3.18.1-rc.1 <4.0.0-0'
         version: 3.18.2
     devDependencies:
       '@types/node':
