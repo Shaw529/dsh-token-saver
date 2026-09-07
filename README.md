@@ -65,6 +65,17 @@ dsh plugin --profile web install dsh-token-saver
 dsh plugin --profile web install dsh-token-saver@0.1.0
 ```
 
+### 安装方式（按发布状态）
+
+| 来源 | 命令 | 说明 |
+|---|---|---|
+| **npm registry（推荐）** | `dsh plugin --profile web install dsh-token-saver@0.1.0` | 待 `npm publish` 后可用；目前走 GitHub tarball 或本地 pack |
+| **GitHub Release tarball** | `dsh plugin --profile web install https://github.com/Shaw529/dsh-token-saver/releases/download/v0.1.0/dsh-token-saver-0.1.0.tgz` | 预构建 tarball，16.8KB，跳过 `allowBuilds` |
+| 本地 tarball（开发中版本） | `pnpm run build && pnpm pack` → `dsh plugin --profile web install ./dsh-token-saver-0.1.0.tgz` | 本地 build 后打包 |
+| 源码仓库（不推荐） | `dsh plugin --profile web install https://github.com/Shaw529/dsh-token-saver` | 走源码构建，需要 `allowBuilds` 授权 |
+
+> v0.1.0 release 已发布到 GitHub，附预构建 tarball。npm publish 暂未完成（待 `npm login`），预期下个版本时一并发布。
+
 本地开发模式：
 
 ```bash
